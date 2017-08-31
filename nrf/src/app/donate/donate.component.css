@@ -1,0 +1,60 @@
+.inr-two{
+background-color: #4CAF50;
+    padding: 13px;
+    font-size: 20px;
+    color: #FFC107;
+    margin: 15px 0px;
+}
+.inr-five{
+background-color: #607D8B;
+    padding: 13px;
+    font-size: 20px;
+    color: #FFC107;
+    margin: 15px 0px;
+}
+.inr-onek{
+background-color: #FF5722;
+    padding: 13px;
+    font-size: 20px;
+    color: #FFC107;
+    margin: 15px 0px;
+}
+.own-choice {
+    background-color: #CDDC39;
+    padding: 13px;
+    font-size: 20px;
+    color: #FFC107;
+    margin: 15px 0px;
+}
+.total-amount {
+background-color: #009688;
+    padding: 13px;
+    font-size: 20.33px;
+    color: #FFC107;
+    margin: 15px 0px;
+}
+.donation-date {
+    background-color: #795548;
+    padding: 13px;
+    /* font-size: 20.33px; */
+    color: #FFC107;
+    margin: 15px 0px;
+}
+input[type=radio] {
+    width: 38px;
+    height: 15px;
+}
+.message-panel {
+    background-color: #5d6160;
+    padding: 13px;
+    font-size: 20px;
+    color: #FFC107;
+    margin: 15px 0px;
+    text-align: center;
+}
+.custom-margin {
+margin: 10px 0px;
+}
+.custom-margin input {
+height:43px;
+}
