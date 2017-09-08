@@ -55,6 +55,6 @@ input[type=radio] {
 .custom-margin {
 margin: 10px 0px;
 }
-.custom-margin input {
-height:43px;
+.custom-margin input,select,button {
+    height:43px;
 }

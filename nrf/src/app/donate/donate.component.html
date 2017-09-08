@@ -8,51 +8,74 @@
         <form name="donate-form">
           <div class="form-group">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 inr-two">
-              <input type="radio" name="amountGrp" value="200" id="200" [(ngModel)]="amount"><label for="200">INR 200</label>
+              <input type="radio" name="amountGrp" value="200" id="200" [(ngModel)]="donation.amount"><label for="200">INR 200</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 inr-five">
-              <input type="radio" name="amountGrp" value="500" id="500" [(ngModel)]="amount"><label for="500">INR 500</label>
+              <input type="radio" name="amountGrp" value="500" id="500" [(ngModel)]="donation.amount"><label for="500">INR 500</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 inr-onek">
-              <input type="radio" name="amountGrp" value="1000" id="1000" [(ngModel)]="amount"><label for="1000">INR 1000</label>
+              <input type="radio" name="amountGrp" value="1000" id="1000" [(ngModel)]="donation.amount"><label for="1000">INR 1000</label>
             </div>
           </div>
           <div class="form-group">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 own-choice">
-                <input type="number" name="amount" placeholder="Enter amout as per your choice" class="form-control" [(ngModel)]="amount">
+                <input type="number" name="amount" placeholder="Enter amout as per your choice" class="form-control"
+                       [(ngModel)]="donation.amount">
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 total-amount">
               <label>Total Amount: {{amount}}</label>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 donation-date">
-              <input type="date" class="form-control" name="donatedDate">
+              <input type="date" class="form-control" name="donation.donatedDate">
             </div>
           </div>
-          <div class="form-group" *ngIf="amount !==undefined">
+          <div class="form-group" *ngIf="donation.amount !==undefined">
             <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12 message-panel">
-              <label>I am happy to contribute INR {{amount}} to CARE India</label>
+              <label>I am happy to contribute INR {{donation.amount}} to CARE India</label>
             </div>
           </div>
-          <div class="form-group" *ngIf="amount !==undefined">
+          <div class="form-group" *ngIf="donation.amount !==undefined">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <input type="text" class="form-control" placeholder="Enter your name">
+              <input type="text" name="fullName" class="form-control" placeholder="Enter your name" [(ngModel)]="donation.name">
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <input type="text" class="form-control" placeholder="Enter your email id">
+              <input type="text" name="email" class="form-control" placeholder="Enter your email" [(ngModel)]="donation.email">
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <input type="tel" class="form-control" placeholder="Enter your mobile">
+              <input type="tel" name="mobileNo" class="form-control" placeholder="Enter your mobile no" [(ngModel)]="donation.mobileNo">
             </div>
           </div>
-          <div class="form-group" *ngIf="amount !==undefined">
+          <div class="form-group" *ngIf="donation.amount !==undefined">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <input type="text" class="form-control" placeholder="Enter your name">
+              <input type="date" name="dob" class="form-control" placeholder="Enter your dob" [(ngModel)]="donation.dob">
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <input type="text" class="form-control" placeholder="Enter your email id">
+              <input type="text" name="pan" class="form-control" placeholder="Enter your pan no" [(ngModel)]="donation.pan">
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <input type="tel" class="form-control" placeholder="Enter your mobile">
+              <input type="text" name="pinCode" class="form-control" placeholder="Enter your pin code" [(ngModel)]="donation.pinCode">
+            </div>
+          </div>
+          <div class="form-group" *ngIf="donation.amount !==undefined">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
+              <select class="form-control" [(ngModel)]="donation.mobileNo">
+                <option>--Country--</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
+              <select class="form-control" [(ngModel)]="donation.mobileNo">
+                <option>--State--</option>
+              </select>
+            </div>
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
+              <select class="form-control" [(ngModel)]="donation.mobileNo">
+                <option>--District--</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group" *ngIf="donation.amount !==undefined">
+            <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
+              <button type="submit" class="btn btn-info" (click)="saveData()">Continue And Pay</button>
             </div>
           </div>
         </form>
