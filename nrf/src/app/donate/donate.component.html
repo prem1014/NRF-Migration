@@ -47,7 +47,7 @@
           </div>
           <div class="form-group" *ngIf="donation.amount !==undefined">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <input type="date" name="dob" class="form-control" placeholder="Enter your dob" [(ngModel)]="donation.dob">
+              <input type="date" name="dob" class="form-control" placeholder="Enter your dob" [(ngModel)]="donation.donarDob">
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
               <input type="text" name="pan" class="form-control" placeholder="Enter your pan no" [(ngModel)]="donation.pan">
@@ -58,24 +58,36 @@
           </div>
           <div class="form-group" *ngIf="donation.amount !==undefined">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <select class="form-control" [(ngModel)]="donation.mobileNo">
-                <option>--Country--</option>
+              <select class="form-control" [(ngModel)]="donation.countryCode" name="country" (ngModelChange)="onCountryChange(donation.countryCode)">
+                <option value="">--Select Country--</option>
+                <option *ngFor="let item of location.country"
+                        [value]="item._id">
+                  {{ item.countryName }}
+                </option>
               </select>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <select class="form-control" [(ngModel)]="donation.mobileNo">
-                <option>--State--</option>
+              <select class="form-control" [(ngModel)]="donation.stateCode" name="state" (ngModelChange)="onStateChange(donation.stateCode)">
+                <option value="">--Select State--</option>
+                <option *ngFor="let item of location.state"
+                        [value]="item._id">
+                  {{ item.stateName }}
+                </option>
               </select>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <select class="form-control" [(ngModel)]="donation.mobileNo">
-                <option>--District--</option>
+              <select class="form-control" [(ngModel)]="donation.districtCode" name="district">
+                <option value="">--Select District--</option>
+                <option *ngFor="let item of location.district"
+                        [value]="item._id">
+                  {{ item.districtName }}
+                </option>
               </select>
             </div>
           </div>
           <div class="form-group" *ngIf="donation.amount !==undefined">
             <div class="col-lg-4 col-md-4 col-sm-4 col-xs-12 custom-margin">
-              <button type="submit" class="btn btn-info" (click)="saveData()">Continue And Pay</button>
+              <button type="submit" class="btn btn-info" (click)="saveData(donation)">Continue And Pay</button>
             </div>
           </div>
         </form>
