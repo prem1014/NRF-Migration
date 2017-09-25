@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-import { APIService } from '../_core/api-service';
+import {Component, OnInit} from '@angular/core';
+import {APIService} from '../_core/api-service';
 
 @Component({
   selector: 'app-donate',
@@ -8,46 +8,55 @@ import { APIService } from '../_core/api-service';
 })
 
 export class DonateComponent implements OnInit {
-donation: Donation = {
-  amount: undefined,
-  name: '',
-  email: '',
-  donatedDate:'',
-  mobileNo:'',
-  donarDob:'',
-  pan:'',
-  pinCode:'',
-  countryCode:'',
-  stateCode:'',
-  districtCode:''
-};
+  donation: Donation = {
+    amount: undefined,
+    name: '',
+    email: '',
+    donatedDate: '',
+    mobileNo: '',
+    donarDob: '',
+    pan: '',
+    pinCode: '',
+    countryCode: '',
+    stateCode: '',
+    districtCode: '',
+    paymentStatus:false,
+    paymentId:''
 
-location: Location = {
-   country:['null'],
-   state:['null'],
-   district:['null'],
-};
+  };
 
-constructor(public api: APIService){
- this.api = api;
-}
-  ngOnInit() {
-this.getCountry();
+  location: Location = {
+    country: ['null'],
+    state: ['null'],
+    district: ['null'],
+  };
+
+  constructor(public api: APIService) {
+    this.api = api;
   }
-saveData(donation):void{
 
-}
+  ngOnInit() {
+    this.getCountry();
+  }
 
-onCountryChange(countryCode:string):void{
-this.api.getState(countryCode).subscribe(data => this.location.state = data);
-}
-onStateChange(stateCode:string):void{
-this.api.getDistrict(stateCode).subscribe(data => this.location.district = data);
-}
-getCountry(){
+  saveData(donation): void {
+     donation.paymentId = 'TRN'+Math.floor((Math.random() * 100000000) + 1);
+     donation.paymentStatus = false;
+     this.api.saveDonorDetails(donation).subscribe(data => alert(data.message))
+  }
 
-this.api.getCountry().subscribe(data => this.location.country = data);
-}
+  onCountryChange(countryCode: string): void {
+    this.api.getState(countryCode).subscribe(data => this.location.state = data);
+  }
+
+  onStateChange(stateCode: string): void {
+    this.api.getDistrict(stateCode).subscribe(data => this.location.district = data);
+  }
+
+  getCountry() {
+
+    this.api.getCountry().subscribe(data => this.location.country = data);
+  }
 }
 
 export class Donation {
@@ -62,9 +71,11 @@ export class Donation {
   countryCode: string;
   stateCode: string;
   districtCode: string;
+  paymentId:string;
+  paymentStatus:boolean;
 }
 export class Location {
-   country:['null'];
-   state:['null'];
-   district:['null'];
+  country: ['null'];
+  state: ['null'];
+  district: ['null'];
 }

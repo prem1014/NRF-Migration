@@ -8,10 +8,12 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { DonateComponent } from './donate/donate.component';
 import { APIService } from './_core/api-service';
+import { DashboardComponent } from './dashboard/dashboard.component';
 
 const appRoutes: Routes = [
 {path:'home', component:HomeComponent},
 {path: 'donate', component:DonateComponent},
+{path: 'dashboard', component:DashboardComponent},
 {path:'',redirectTo:'home', pathMatch: 'full' },
 ]
 
@@ -19,7 +21,8 @@ const appRoutes: Routes = [
   declarations: [
     AppComponent,
     HomeComponent,
-    DonateComponent
+    DonateComponent,
+    DashboardComponent
   ],
   imports: [
     BrowserModule,

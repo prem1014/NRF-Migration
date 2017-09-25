@@ -1,0 +1,15 @@
+.amount-container{
+    padding: 14px;
+    margin: 10px 45px 10px 45px;;
+    text-align: center;
+    color:white;
+}
+.total-amount{
+    background-color: #FF5722;
+}
+.amount-in-month{
+background-color: #009688;
+}
+.amount-in-year{
+background-color: #4CAF50;
+}
